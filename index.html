@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio DEV | Beatriz Giacomini</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+
+      /* PALETA DA IMAGEM */
+
+      --navy:#2F4156;
+      --teal:#567C8D;
+      --sky:#C8D9E6;
+      --beige:#F5EFEB;
+      --white:#FFFFFF;
+
+      --bg:var(--beige);
+      --bg-dark:var(--navy);
+      --card:rgba(255,255,255,.65);
+
+      --text-dark:#243344;
+      --text-light:#5d6c79;
+
+      --border:rgba(47,65,86,.10);
+
+      --gradient:linear-gradient(135deg,var(--teal),var(--navy));
+
+      --shadow:0 20px 60px rgba(47,65,86,.12);
+
+      --radius:24px;
+
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text-dark);
+      overflow-x:hidden;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1180px,90%);
+      margin:auto;
+    }
+
+    section{
+      padding:110px 0;
+    }
+
+    .section-title{
+      font-size:clamp(2.3rem,5vw,4rem);
+      font-weight:900;
+      line-height:1.05;
+      margin-bottom:20px;
+      color:var(--navy);
+    }
+
+    .section-description{
+      max-width:760px;
+      color:var(--text-light);
+      line-height:1.9;
+      font-size:1.05rem;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:999;
+      backdrop-filter:blur(12px);
+      background:rgba(245,239,235,.85);
+      border-bottom:1px solid rgba(47,65,86,.08);
+    }
+
+    .nav-wrapper{
+      height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo{
+      font-size:1.5rem;
+      font-weight:900;
+      color:var(--navy);
+      letter-spacing:.5px;
+    }
+
+    .logo span{
+      color:var(--teal);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:32px;
+    }
+
+    .nav-links a{
+      font-weight:600;
+      color:var(--text-light);
+      transition:.3s;
+    }
+
+    .nav-links a:hover{
+      color:var(--navy);
+    }
+
+    .nav-btn{
+      padding:14px 24px;
+      border-radius:999px;
+      background:var(--gradient);
+      color:white;
+      font-weight:700;
+      transition:.3s;
+      box-shadow:var(--shadow);
+    }
+
+    .nav-btn:hover{
+      transform:translateY(-3px);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      background:
+      radial-gradient(circle at top right, rgba(86,124,141,.20), transparent 35%),
+      radial-gradient(circle at bottom left, rgba(200,217,230,.60), transparent 40%);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(86,124,141,.12);
+      border:1px solid rgba(86,124,141,.15);
+      color:var(--teal);
+      font-weight:700;
+      margin-bottom:28px;
+    }
+
+    .hero h1{
+      font-size:clamp(3rem,6vw,5.7rem);
+      line-height:.98;
+      font-weight:900;
+      color:var(--navy);
+      margin-bottom:28px;
+    }
+
+    .hero h1 span{
+      color:var(--teal);
+    }
+
+    .hero p{
+      color:var(--text-light);
+      font-size:1.1rem;
+      line-height:1.9;
+      max-width:650px;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+      padding:16px 28px;
+      border-radius:16px;
+      font-weight:700;
+      transition:.3s;
+    }
+
+    .primary-btn{
+      background:var(--gradient);
+      color:white;
+      box-shadow:var(--shadow);
+    }
+
+    .secondary-btn{
+      border:1px solid rgba(47,65,86,.10);
+      background:rgba(255,255,255,.55);
+      color:var(--navy);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover{
+      transform:translateY(-4px);
+    }
+
+    /* FOTO */
+
+    .profile-card{
+      background:rgba(255,255,255,.65);
+      border:1px solid rgba(47,65,86,.08);
+      border-radius:32px;
+      padding:30px;
+      backdrop-filter:blur(16px);
+      box-shadow:var(--shadow);
+    }
+
+    .profile-image{
+      aspect-ratio:1/1;
+      border-radius:24px;
+      overflow:hidden;
+      background:var(--sky);
+      margin-bottom:24px;
+    }
+
+    .profile-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .profile-info h3{
+      font-size:2rem;
+      color:var(--navy);
+      margin-bottom:10px;
+    }
+
+    .profile-info p{
+      color:var(--text-light);
+      line-height:1.8;
+    }
+
+    .tech-stack{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:28px;
+    }
+
+    .chip{
+      padding:11px 16px;
+      border-radius:999px;
+      background:rgba(86,124,141,.10);
+      border:1px solid rgba(86,124,141,.10);
+      color:var(--navy);
+      font-weight:600;
+      font-size:.92rem;
+    }
+
+    /* CARDS */
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+      margin-top:60px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.72);
+      border-radius:28px;
+      padding:34px;
+      border:1px solid rgba(47,65,86,.08);
+      transition:.35s;
+      backdrop-filter:blur(12px);
+      box-shadow:0 10px 30px rgba(47,65,86,.05);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(86,124,141,.30);
+    }
+
+    .card-icon{
+      width:68px;
+      height:68px;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(86,124,141,.12);
+      margin-bottom:24px;
+      font-size:1.6rem;
+    }
+
+    .card h3{
+      color:var(--navy);
+      font-size:1.4rem;
+      margin-bottom:14px;
+    }
+
+    .card p{
+      color:var(--text-light);
+      line-height:1.85;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+      margin-top:60px;
+    }
+
+    .skill-box{
+      background:rgba(255,255,255,.72);
+      border-radius:28px;
+      padding:30px;
+      border:1px solid rgba(47,65,86,.08);
+      box-shadow:0 10px 30px rgba(47,65,86,.05);
+    }
+
+    .skill-box h4{
+      color:var(--navy);
+      margin-bottom:22px;
+      font-size:1.2rem;
+    }
+
+    .skill-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .skill{
+      padding:12px 18px;
+      border-radius:12px;
+      background:rgba(200,217,230,.45);
+      color:var(--navy);
+      font-weight:600;
+    }
+
+    /* PROJETO */
+
+    .project-highlight{
+      margin-top:70px;
+      padding:60px;
+      border-radius:36px;
+      background:linear-gradient(135deg,#dce7ef,#f8f4f1);
+      border:1px solid rgba(47,65,86,.08);
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .project-image{
+      overflow:hidden;
+      border-radius:28px;
+      border:1px solid rgba(47,65,86,.08);
+    }
+
+    .project-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .project-content span{
+      display:inline-block;
+      color:var(--teal);
+      font-weight:800;
+      letter-spacing:1px;
+      margin-bottom:20px;
+    }
+
+    .project-content h3{
+      font-size:2.5rem;
+      line-height:1.1;
+      color:var(--navy);
+      margin-bottom:24px;
+    }
+
+    .project-content p{
+      color:var(--text-light);
+      line-height:1.9;
+      margin-bottom:18px;
+      text-align: justify;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+      padding:90px 40px;
+      border-radius:36px;
+      background:linear-gradient(135deg,var(--navy),var(--teal));
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .cta::before{
+      content:"";
+      position:absolute;
+      width:400px;
+      height:400px;
+      background:rgba(255,255,255,.06);
+      border-radius:50%;
+      top:-180px;
+      right:-100px;
+    }
+
+    .cta h2{
+      font-size:clamp(2.3rem,5vw,4.3rem);
+      line-height:1.05;
+      margin-bottom:24px;
+      position:relative;
+      z-index:2;
+    }
+
+    .cta p{
+      max-width:760px;
+      margin:auto;
+      line-height:1.9;
+      color:rgba(255,255,255,.82);
+      margin-bottom:38px;
+      position:relative;
+      z-index:2;
+    }
+
+    .cta .primary-btn{
+      background:white;
+      color:var(--navy);
+      position:relative;
+      z-index:2;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:45px 0;
+    }
+
+    .footer-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+      border-top:1px solid rgba(47,65,86,.08);
+      padding-top:30px;
+    }
+
+    .footer-content p{
+      color:var(--text-light);
+    }
+
+    .footer-links{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a{
+      color:var(--text-light);
+      transition:.3s;
+      font-weight:500;
+    }
+
+    .footer-links a:hover{
+      color:var(--navy);
+    }
+
+    /* RESPONSIVO */
+
+    @media(max-width:1024px){
+
+      .hero-grid,
+      .project-highlight{
+        grid-template-columns:1fr;
+      }
+
+      .grid-3{
+        grid-template-columns:1fr 1fr;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      .nav-links{
+        display:none;
+      }
+
+      .grid-3,
+      .skills{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-top:120px;
+      }
+
+      .hero h1{
+        font-size:3.3rem;
+      }
+
+      .project-highlight{
+        padding:40px 28px;
+      }
+
+      section{
+        padding:90px 0;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="container nav-wrapper">
+
+      <a href="#" class="logo">
+        DEV<span>FÓLIO</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#skills">Competências</a>
+        <a href="#areas">Áreas</a>
+        <a href="#projeto">Projeto</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <a href="#contato" class="nav-btn">
+        Falar comigo
+      </a>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="badge">
+          Desenvolvedora WEB
+        </div>
+
+        <h1>
+          Construindo <span>soluções digitais</span> que geram impacto real
+        </h1>
+
+        <p>
+          Desenvolvedores transformam ideias em plataformas, sistemas e experiências digitais capazes de automatizar processos, impulsionar negócios e conectar milhões de pessoas. Hoje, desenvolvimento é estratégia, inovação e resolução de problemas.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#projeto" class="primary-btn">
+            Ver projeto principal
+          </a>
+
+          <a href="#sobre" class="secondary-btn">
+            Explorar profissão
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- FOTO -->
+
+      <div class="profile-card">
+
+        <div class="profile-image">
+
+          <!-- coloque sua foto aqui -->
+
+          <img src="public/Perfil.png" alt="Foto profissional">
+
+        </div>
+
+        <div class="profile-info">
+
+          <h3>Beatriz Giacomini</h3>
+
+          <p>
+            Desenvolvedora focada em aplicações modernas, experiência do usuário e arquitetura escalável. Atuação em projetos web, APIs, automações e soluções digitais completas.
+          </p>
+
+        </div>
+
+        <div class="tech-stack">
+
+          <div class="chip">React</div>
+          <div class="chip">Node.js</div>
+          <div class="chip">JavaScript</div>
+          <div class="chip">Next.js</div>
+          <div class="chip">SQL</div>
+          <div class="chip">AWS</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOBRE -->
+
+  <section id="sobre">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Sobre a profissão de desenvolvedor
+      </h2>
+
+      <p class="section-description">
+        O desenvolvedor é responsável por criar sistemas, plataformas, aplicativos e experiências digitais que sustentam empresas, serviços e operações modernas.
+      </p>
+
+      <div class="grid-3">
+
+        <div class="card">
+
+          <div class="card-icon">💻</div>
+
+          <h3>Criação de Sistemas</h3>
+
+          <p>
+            Desenvolvimento de aplicações web, APIs e plataformas modernas para empresas e usuários.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-icon">⚡</div>
+
+          <h3>Automação</h3>
+
+          <p>
+            Processos otimizados através de integrações e soluções inteligentes que aumentam produtividade.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-icon">🌎</div>
+
+          <h3>Impacto Global</h3>
+
+          <p>
+            Softwares modernos conectam pessoas, empresas e serviços em escala mundial.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Competências principais
+      </h2>
+
+      <p class="section-description">
+        O mercado atual exige desenvolvedores completos, capazes de unir conhecimento técnico e pensamento estratégico.
+      </p>
+
+      <div class="skills">
+
+        <div class="skill-box">
+
+          <h4>Frontend</h4>
+
+          <div class="skill-list">
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Next.js</div>
+            <div class="skill">TailwindCSS</div>
+          </div>
+
+        </div>
+
+        <div class="skill-box">
+
+          <h4>Backend</h4>
+
+          <div class="skill-list">
+            <div class="skill">Node.js</div>
+            <div class="skill">Express</div>
+            <div class="skill">APIs REST</div>
+            <div class="skill">SQL</div>
+            <div class="skill">MongoDB</div>
+            <div class="skill">Docker</div>
+          </div>
+
+        </div>
+
+        <div class="skill-box">
+
+          <h4>Cloud & DevOps</h4>
+
+          <div class="skill-list">
+            <div class="skill">AWS</div>
+            <div class="skill">CI/CD</div>
+            <div class="skill">Linux</div>
+            <div class="skill">Git</div>
+            <div class="skill">Nginx</div>
+            <div class="skill">Deploy</div>
+          </div>
+
+        </div>
+
+        <div class="skill-box">
+
+          <h4>Soft Skills</h4>
+
+          <div class="skill-list">
+            <div class="skill">Resolução de problemas</div>
+            <div class="skill">Comunicação</div>
+            <div class="skill">Trabalho em equipe</div>
+            <div class="skill">Adaptabilidade</div>
+            <div class="skill">Liderança técnica</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ÁREAS -->
+
+  <section id="areas">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Áreas de atuação
+      </h2>
+
+      <p class="section-description">
+        A carreira em desenvolvimento permite atuar em múltiplos setores e modelos de negócio.
+      </p>
+
+      <div class="grid-3">
+
+        <div class="card">
+
+          <div class="card-icon">🏢</div>
+
+          <h3>Empresas de Tecnologia</h3>
+
+          <p>
+            Desenvolvimento de produtos digitais, plataformas SaaS e sistemas corporativos.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-icon">🚀</div>
+
+          <h3>Startups</h3>
+
+          <p>
+            Ambientes inovadores focados em crescimento rápido e desenvolvimento ágil.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-icon">🌐</div>
+
+          <h3>Freelance & Remoto</h3>
+
+          <p>
+            Possibilidade de trabalhar globalmente e construir produtos próprios.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJETO -->
+
+  <section id="projeto">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Projeto destaque
+      </h2>
+
+      <p class="section-description">
+        O verdadeiro diferencial está em resolver problemas reais através da tecnologia.
+      </p>
+
+      <div class="project-highlight">
+
+        <div class="project-image">
+
+          <img src="public/Projeto.png" alt="Projeto">
+
+        </div>
+
+        <div class="project-content">
+
+          <h3>
+            Plataforma de organização para vestibulandos
+          </h3>
+
+          <p>
+            Desenvolvimento de uma aplicação completa voltada para gerenciamento de estudos, metas e cronogramas.
+          </p>
+
+          <p>
+            O sistema foi construído com foco em experiência do usuário, performance e escalabilidade.
+          </p>
+
+          <p>
+            O projeto exigiu arquitetura de software, análise de comportamento do usuário e decisões estratégicas para criar uma plataforma intuitiva e eficiente.
+          </p>
+
+          <br>
+
+          <a href="#" class="primary-btn">
+            Explorar projeto
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section id="contato">
+
+    <div class="container">
+
+      <div class="cta">
+
+        <h2>
+          Tecnologia muda mercados. Bons desenvolvedores mudam empresas.
+        </h2>
+
+        <p>
+          Desenvolvimento de software continua sendo uma das profissões mais relevantes e estratégicas da atualidade.
+        </p>
+
+        <a href="#" class="primary-btn">
+          Entrar em contato
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <p>
+        © 2026 • Desenvolvido por Beatriz Giacomini
+      </p>
+
+      <div class="footer-links">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Portfólio</a>
+        <a href="#">Email</a>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    const cards = document.querySelectorAll('.card, .skill-box');
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+
+        }
+
+      });
+
+    }, {
+      threshold:0.1
+    });
+
+    cards.forEach((card) => {
+
+      card.style.opacity = "0";
+      card.style.transform = "translateY(40px)";
+      card.style.transition = ".7s ease";
+
+      observer.observe(card);
+
+    });
+
+  </script>
+
+</body>
+</html>
